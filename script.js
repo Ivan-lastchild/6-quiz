@@ -24,7 +24,7 @@ let quiz = [
     }
 ];
 
-console.log(askingQuestion(quiz, count));
+alert(`Поздравляем Вы набрпли ${askingQuestion(quiz, count)} баллов`);
 
 function askingQuestion(arr, score){
     arr.forEach((elem) => {
