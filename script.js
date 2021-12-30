@@ -8,7 +8,7 @@ let quiz = [
     },
     {
         question: "Солнце встает на востоке?",
-        answer: "yes",
+        answer: true,
     },
     {
         question: "Сколько будет 5/0",
@@ -24,18 +24,20 @@ let quiz = [
     }
 ];
 
-alert(`Поздравляем Вы набрпли ${askingQuestion(quiz, count)} баллов`);
+alert(`Поздравляем, Вы набрaли ${askingQuestion(quiz, count)} баллов`);
 
 function askingQuestion(arr, score){
     arr.forEach((elem) => {
-        let userAnswer = prompt(`${elem.question}`);
 
-        if(userAnswer == elem.answer){
-            score +=10;
+        if(elem.answer == true || elem.answer == false){
+            const userAnswer = confirm(`${elem.question}`);
+            userAnswer == elem.answer ? score+=10 : score +=0;
         } else {
-            score +=0;
+            const userAnswer = prompt(`${elem.question}`);
+            userAnswer == elem.answer ? score+=10 : score +=0;
         }
     });
 
     return score;
 }
+
